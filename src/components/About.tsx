@@ -32,7 +32,7 @@ export default function About() {
             {/* Enhanced Paragraph with Dark Theme */}
             <div className="glass-dark rounded-2xl p-8 shadow-premium border border-white/10 reveal-up">
               <p className="text-lg sm:text-xl text-white/90 leading-relaxed font-medium">
-                I'm a passionate web developer with over 5 years of experience creating
+                I&apos;m a passionate web developer with over 5 years of experience creating
                 modern, responsive websites and applications. I specialize in React,
                 Next.js, and TypeScript, with a strong focus on clean code and exceptional
                 user experiences.

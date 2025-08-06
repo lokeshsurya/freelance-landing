@@ -51,11 +51,11 @@ export default function Contact() {
         {/* Header */}
         <div className="text-center mb-20 reveal-up">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-serif">
-            Let's Work Together
+            Let&apos;s Work Together
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-8"></div>
           <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
-            Ready to bring your ideas to life? I'd love to hear about your project
+            Ready to bring your ideas to life? I&apos;d love to hear about your project
             and discuss how we can work together to achieve your goals.
           </p>
         </div>

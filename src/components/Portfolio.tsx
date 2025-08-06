@@ -1,7 +1,5 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-
 export default function Portfolio() {
 
   const projects = [
@@ -72,7 +70,7 @@ export default function Portfolio() {
         {/* Projects Grid - Mobile Responsive */}
         <div className="portfolio-container relative">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {projects.map((project, index) => (
+            {projects.map((project) => (
               <div
                 key={project.title}
                 className="glass-dark rounded-2xl shadow-premium hover:shadow-premium-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden group border border-white/10 hover:border-white/20"
