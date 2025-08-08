@@ -53,7 +53,11 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Brand */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold font-serif">Lokesh Suryawanshi</h3>
+            <h3 className="text-2xl font-bold font-serif">
+              <a href="#home" className="hover:text-white/90 transition-colors" aria-label="Go to Home">
+                Lokesh Suryawanshi
+              </a>
+            </h3>
             <p className="text-white/70 leading-relaxed">
               Full-Stack Developer & Digital Craftsman creating beautiful,
               functional digital experiences.

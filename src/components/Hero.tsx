@@ -86,18 +86,18 @@ export default function Hero() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
-        <div className={`space-y-12 ultra-smooth gpu-accelerated ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-center">
+        <div className={`space-y-8 sm:space-y-10 md:space-y-12 ultra-smooth gpu-accelerated ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
 
           {/* Badge/Label */}
-          <div className="inline-flex items-center px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-accent-200 shadow-premium">
-            <span className="w-2 h-2 bg-green-400 rounded-full mr-3 animate-pulse"></span>
-            <span className="text-sm font-medium text-primary">Available for new projects</span>
+          <div className="inline-flex items-center px-3 py-2 sm:px-4 bg-white/80 backdrop-blur-sm rounded-full border border-accent-200 shadow-premium">
+            <span className="w-2 h-2 bg-green-400 rounded-full mr-2 sm:mr-3 animate-pulse"></span>
+            <span className="text-xs sm:text-sm font-medium text-primary">Available for new projects</span>
           </div>
 
           {/* Smooth Headline with Optimized Scroll Animation */}
-          <div ref={headlineRef} className="space-y-2">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight leading-tight">
+          <div ref={headlineRef} className="space-y-1 sm:space-y-2">
+            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight leading-tight">
               <span
                 className="block bg-gradient-to-r from-primary-700 via-accent-600 to-primary-800 bg-clip-text text-transparent font-display will-change-transform"
                 style={{
@@ -123,26 +123,26 @@ export default function Hero() {
 
           {/* Smooth Tagline with Optimized Scroll Effects */}
           <div
-            className="max-w-4xl mx-auto space-y-6 will-change-transform"
+            className="max-w-4xl mx-auto space-y-4 sm:space-y-6 will-change-transform"
             style={{
               transform: `translate3d(0, ${scrollY * 0.05}px, 0)`,
               opacity: Math.max(0.5, 1 - scrollY * 0.0008),
               transition: 'transform 0.1s ease-out, opacity 0.1s ease-out'
             }}
           >
-            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-primary-700 leading-relaxed font-medium font-display">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-primary-700 leading-relaxed font-medium font-display px-2">
               I build <span className="text-accent-600 font-semibold">fast</span>,
               <span className="text-primary-600 font-semibold"> clean</span>, and
               <span className="text-accent-alt-600 font-semibold"> modern</span> websites.
             </p>
-            <p className="text-lg sm:text-xl text-primary-600 leading-relaxed max-w-2xl mx-auto font-body">
+            <p className="text-base sm:text-lg md:text-xl text-primary-600 leading-relaxed max-w-2xl mx-auto font-body px-2">
               Transforming ideas into exceptional digital experiences with cutting-edge technology and thoughtful design.
             </p>
           </div>
 
           {/* Smooth CTA Section */}
           <div
-            className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8 will-change-transform"
+            className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center pt-6 sm:pt-8 will-change-transform"
             style={{
               transform: `translate3d(0, ${scrollY * 0.03}px, 0)`,
               opacity: Math.max(0.6, 1 - scrollY * 0.0006),

@@ -19,14 +19,30 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
-    // Reset form
-    setFormData({ name: '', email: '', subject: '', message: '' })
+    // Compose a mailto link using the form data
+    const to = 'lokeshsurya818@protonmail.com'
+    const subject = encodeURIComponent(`${formData.subject} — Inquiry from ${formData.name}`)
+    const bodyLines = [
+      `Name: ${formData.name}`,
+      `Email: ${formData.email}`,
+      '',
+      'Message:',
+      formData.message
+    ]
+    const body = encodeURIComponent(bodyLines.join('\n'))
+    const mailtoUrl = `mailto:${to}?subject=${subject}&body=${body}`
+
+    // Open the user's default mail client
+    window.location.href = mailtoUrl
+
+    // Optional UX: reset form shortly after triggering the mail client
+    setTimeout(() => {
+      setFormData({ name: '', email: '', subject: '', message: '' })
+    }, 300)
   }
 
   return (
-    <section id="contact" className="relative py-24 px-6 lg:px-8 overflow-hidden bg-black">
+    <section id="contact" className="relative py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden bg-black">
       {/* Premium Dark Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
         {/* Animated liquid shapes */}
@@ -49,60 +65,64 @@ export default function Contact() {
       </div>
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-20 reveal-up">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-serif">
+        <div className="text-center mb-12 sm:mb-16 md:mb-20 reveal-up">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 font-serif px-2">
             Let&apos;s Work Together
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-8"></div>
-          <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+          <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-6 sm:mb-8"></div>
+          <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed px-4">
             Ready to bring your ideas to life? I&apos;d love to hear about your project
             and discuss how we can work together to achieve your goals.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
           {/* Contact Information */}
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             <div>
-              <h3 className="text-3xl font-bold text-white mb-8 font-serif">Get In Touch</h3>
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-8 font-serif">Get In Touch</h3>
               
-              <div className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full flex items-center justify-center text-blue-400 text-xl border border-blue-500/30">
+              <div className="space-y-4 sm:space-y-6">
+                <div className="flex items-center space-x-3 sm:space-x-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full flex items-center justify-center text-blue-400 text-lg sm:text-xl border border-blue-500/30 flex-shrink-0">
                     📧
                   </div>
-                  <div>
-                    <p className="font-medium text-white">Email</p>
-                    <p className="text-white/70">lokesh.suryawanshi@example.com</p>
+                  <div className="min-w-0">
+                    <p className="font-medium text-white text-sm sm:text-base">Email</p>
+                    <p className="text-white/70 text-sm sm:text-base break-all">
+                      <a href="mailto:lokeshsurya818@protonmail.com" className="hover:text-white underline-offset-4 hover:underline">
+                        lokeshsurya818@protonmail.com
+                      </a>
+                    </p>
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full flex items-center justify-center text-blue-400 text-xl border border-blue-500/30">
+                <div className="flex items-center space-x-3 sm:space-x-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full flex items-center justify-center text-blue-400 text-lg sm:text-xl border border-blue-500/30 flex-shrink-0">
                     📱
                   </div>
-                  <div>
-                    <p className="font-medium text-white">Phone</p>
-                    <p className="text-white/70">+91 (555) 123-4567</p>
+                  <div className="min-w-0">
+                    <p className="font-medium text-white text-sm sm:text-base">Phone</p>
+                    <p className="text-white/70 text-sm sm:text-base">+91 (555) 123-4567</p>
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full flex items-center justify-center text-blue-400 text-xl border border-blue-500/30">
+                <div className="flex items-center space-x-3 sm:space-x-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full flex items-center justify-center text-blue-400 text-lg sm:text-xl border border-blue-500/30 flex-shrink-0">
                     📍
                   </div>
-                  <div>
-                    <p className="font-medium text-white">Location</p>
-                    <p className="text-white/70">Mumbai, India</p>
+                  <div className="min-w-0">
+                    <p className="font-medium text-white text-sm sm:text-base">Location</p>
+                    <p className="text-white/70 text-sm sm:text-base">Pune, India</p>
                   </div>
                 </div>
               </div>
             </div>
             
             {/* Response Time */}
-            <div className="glass-dark p-6 rounded-2xl border border-white/10">
-              <h4 className="font-semibold text-white mb-2">Quick Response</h4>
-              <p className="text-white/80">
+            <div className="glass-dark p-4 sm:p-6 rounded-2xl border border-white/10">
+              <h4 className="font-semibold text-white mb-2 text-sm sm:text-base">Quick Response</h4>
+              <p className="text-white/80 text-sm sm:text-base">
                 I typically respond to all inquiries within 24 hours.
                 For urgent projects, feel free to call directly.
               </p>
@@ -110,9 +130,9 @@ export default function Contact() {
           </div>
 
           {/* Contact Form */}
-          <div className="glass-dark p-8 rounded-2xl shadow-premium border border-white/10">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+          <div className="glass-dark p-6 sm:p-8 rounded-2xl shadow-premium border border-white/10">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
                     Name *

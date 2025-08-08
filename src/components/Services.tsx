@@ -41,7 +41,7 @@ export default function Services() {
   ]
 
   return (
-    <section id="services" className="relative py-24 px-6 lg:px-8 overflow-hidden bg-black">
+    <section id="services" className="relative py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden bg-black">
       {/* Premium Dark Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black">
         {/* Animated liquid shapes */}
@@ -60,36 +60,36 @@ export default function Services() {
       </div>
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-20 reveal-up">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-serif">
+        <div className="text-center mb-12 sm:mb-16 md:mb-20 reveal-up">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 font-serif px-2">
             Services Offered
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-8"></div>
-          <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+          <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-6 sm:mb-8"></div>
+          <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed px-4">
             I provide comprehensive digital solutions tailored to your specific needs,
             from initial concept to final deployment and beyond.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {services.map((service) => (
             <div
               key={service.title}
-              className="glass-dark p-8 rounded-2xl shadow-premium hover:shadow-premium-xl transition-all duration-300 transform hover:-translate-y-2 group border border-white/10 hover:border-white/20"
+              className="glass-dark p-6 sm:p-8 rounded-2xl shadow-premium hover:shadow-premium-xl transition-all duration-300 transform hover:-translate-y-2 group border border-white/10 hover:border-white/20"
             >
               {/* Icon */}
-              <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="text-4xl sm:text-5xl mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
                 {service.icon}
               </div>
               
               {/* Title */}
-              <h3 className="text-2xl font-bold text-white mb-4 font-serif">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4 font-serif">
                 {service.title}
               </h3>
 
               {/* Description */}
-              <p className="text-white/80 mb-6 leading-relaxed">
+              <p className="text-sm sm:text-base text-white/80 mb-4 sm:mb-6 leading-relaxed">
                 {service.description}
               </p>
 

@@ -5,8 +5,9 @@ import SwiralBackground from './SwiralBackground'
 
 export default function PremiumHero() {
   const [currentTime, setCurrentTime] = useState('')
-  const [scrollY, setScrollY] = useState(0)
   const [activeSection, setActiveSection] = useState('home')
+  const [isHeroVisible, setIsHeroVisible] = useState(true)
+  const [scrollY, setScrollY] = useState(0)
 
   // Update clock
   useEffect(() => {
@@ -33,6 +34,14 @@ export default function PremiumHero() {
         requestAnimationFrame(() => {
           const currentScrollY = window.scrollY
           setScrollY(currentScrollY)
+
+          // Detect if Hero section is visible
+          const heroElement = document.getElementById('home')
+          if (heroElement) {
+            const rect = heroElement.getBoundingClientRect()
+            const heroVisible = rect.bottom > 100 // Show sidebar when hero section is still visible
+            setIsHeroVisible(heroVisible)
+          }
 
           // Detect active section
           const sections = ['home', 'about', 'services', 'work', 'contact']
@@ -80,10 +89,10 @@ export default function PremiumHero() {
         {/* Centered Name */}
         <div className="absolute left-1/2 transform -translate-x-1/2">
           <h1 className="premium-name text-white text-lg sm:text-xl">
-            <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">
+            <a href="#home" aria-label="Go to Home" className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent hover:opacity-90 transition-opacity cursor-pointer">
               <span className="hidden sm:inline">Lokesh Suryawanshi</span>
               <span className="sm:hidden">L. Suryawanshi</span>
-            </span>
+            </a>
           </h1>
         </div>
 
@@ -95,8 +104,10 @@ export default function PremiumHero() {
         </div>
       </nav>
 
-      {/* Left Sidebar Navigation - Mobile Responsive */}
-      <nav className="fixed left-2 sm:left-4 lg:left-8 top-1/2 transform -translate-y-1/2 z-50">
+      {/* Left Sidebar Navigation - Smart Mobile Visibility */}
+      <nav className={`fixed left-2 sm:left-4 lg:left-8 top-1/2 transform -translate-y-1/2 z-50 transition-all duration-300 ${
+        isHeroVisible ? 'opacity-100 translate-x-0' : 'md:opacity-100 md:translate-x-0 opacity-0 -translate-x-full'
+      }`}>
         <div className="flex flex-col space-y-2 sm:space-y-3">
           {navItems.map((item, index) => {
             const isActive = activeSection === item.id

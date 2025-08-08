@@ -26,13 +26,19 @@ export const metadata: Metadata = {
   description: "Professional freelance web developer specializing in modern, responsive websites and applications. Expert in React, Next.js, and TypeScript.",
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${inter.variable} ${playfair.variable} ${jetbrainsMono.variable} font-sans antialiased`}
       >
